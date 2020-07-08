@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row">
+    <div class="col-sm-8">
+        <p>
+            <div class="float-left"><h3>List of {{title}}</h3></div>
+        </p>
+        <div class="table-responsive-sm">
+        {% if company_obj %}
+            <table class="table table-bordered">
+                <thead class="thead-light">
+                    <tr>
+                        <th class="text-center">Company Name</th>
+                        <th class="text-center">Agent Name</th>
+                        <th class="text-center">No Of Call Attended</th>
+                        <th class="text-center">Time Spend</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for agent_obj in company_obj.company_agent_set.all %}
+                    <tr>
+                        <td class="text-center">
+                            <span class="badge badge-default">{{company_obj.brand_name}}</span>
+                        </td>
+                        <td class="text-center">
+                            <span class="badge badge-default">{{agent_obj.company_agent_name}}</span>
+                        </td>
+                        <td class="text-center">
+                            <span class="badge badge-default">{{agent_obj.no_of_call_attended}}</span>
+                        </td>
+                        <td class="text-center">
+                            <span class="badge badge-default">{{agent_obj.total_time_spent_for_call_attended}}</span>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+                </table>
+        </div>
+        {% else %}
+            <p class="text-center" >No Company data available</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock content %}

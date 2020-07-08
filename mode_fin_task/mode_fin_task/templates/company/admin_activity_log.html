@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row">
+    <div class="col-sm-12">
+        <p>
+            <div class="float-left"><h3>{{title}}</h3></div>
+        </p>
+        <div class="table-responsive-sm">
+        {% if main_log_activity_obj %}
+            <table class="table table-bordered">
+                <thead class="thead-light">
+                    <tr>
+                        <th class="text-center">Admin Name</th>
+                        <th class="text-center">Activity Created date</th>
+                        <th class="text-center">Activity Details</th>
+                        <th class="text-center">Login</th>
+                        <th class="text-center">LogOut</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for log_activity_obj in main_log_activity_obj %}
+                    <tr>
+                        <td class="text-center">
+                            <span class="badge badge-default">{{log_activity_obj.user}}</span>
+                        </td>
+                        <td class="text-center">
+                            <span class="badge badge-default">{{log_activity_obj.created_date}}</span>
+                        </td>
+                        <td class="text-center">
+                            <span class="badge badge-default">{{log_activity_obj.details_of_activity}}</span>
+                        </td>
+                        <td class="text-center">
+                            <span class="badge badge-default">{{log_activity_obj.log_in_time}}</span>
+                        </td>
+                        <td class="text-center">
+                            <span class="badge badge-default">{{log_activity_obj.log_out_time}}</span>
+                        </td>
+
+                    </tr>
+                {% endfor %}
+                </tbody>
+                </table>
+        </div>
+        {% else %}
+            <p class="text-center" >No log activity data available</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock content %}

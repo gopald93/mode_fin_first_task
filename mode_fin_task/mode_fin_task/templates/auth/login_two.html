@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <style>
+        body {font-family: Arial, Helvetica, sans-serif;background: #DCDDDF url(https://cssdeck.com/uploads/media/items/7/7AF2Qzt.png);}
+        form {border: 5px solid #f1f1f1;}
+        * {box-sizing: border-box;}
+        .input-container {
+        background: #eae7e7 url(https://cssdeck.com/uploads/media/items/8/8bcLQqF.png) no-repeat;
+        display: -ms-flexbox; /* IE10 */
+        display: flex;
+        width: 86%;
+        margin-bottom: 10px;
+        margin-top: 10px;
+        margin-left: 40px;
+        margin-right: 40px;
+        text-align: center;
+         }
+         .icon {
+         padding: 10px;
+         background: dodgerblue;
+         color: white;
+         min-width: 10px;
+         text-align: center;
+         }
+         .h1 {
+         text-align: center;
+         min-width: 100px;
+         }
+         .input-field {
+         width: 100%;
+         padding: 15px;
+         outline: none;
+         }
+         .input-field:focus {
+         border: 2px solid dodgerblue;
+         }
+         /* Set a style for the submit button */
+         .btn {
+         background-color: dodgerblue;
+         color: white;
+         padding: 15px 20px;
+         border: none;
+         cursor: pointer;
+         width: 40%;
+         opacity: 0.9;
+        margin-bottom: 10px;
+        margin-top: 10px;
+        margin-left: 40px;
+        margin-right: 10px;
+         }
+         .btn:hover {
+         opacity: 1;
+         }
+         .p{
+        text-align: center;
+        min-width: 100px;
+        color:red;
+
+         }
+      </style>
+   </head>
+   <body>
+      <form method="POST" style="max-width:500px;margin:auto">
+         <h2 class="h1">Login Form</h2>
+         {% if error %}
+         <p class="p" > {{error}} </p>
+         {% endif %}
+         {% csrf_token %}
+         {% csrf_token %}
+         <div class="input-container">
+            <i class="fa fa-user icon"></i>
+            <input class="input-field" type="text"  name="username" placeholder="Username" required="" id="username" />
+         </div>
+         <div class="input-container">
+            <i class="fa fa-key icon"></i>
+            <input class="input-field"  type="password"  name="password" placeholder="Password" required="" id="password" />
+         </div>
+         <button type="submit" class="btn"> Login </button>
+         <a href="{%  url 'recovery_creditional' %}"  class="btn">Forget Credentials</a>
+      </form>
+   </body>
+</html>
